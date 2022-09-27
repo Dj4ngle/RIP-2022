@@ -1,0 +1,21 @@
+.fit-picture {
+
+}
+/* черный фон сайта */
+body {
+ background-color: #fff;
+}
+
+.wrapper {
+    width: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.tick {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+}

@@ -3,8 +3,12 @@
 {% block title %}Книга №{{ data.model.id }}{% endblock %}
 
 {% block content %}
-    <div>Название: {{ data.model.name }}</div>
+    <div class = "wrapper">
+        <img class="fit-picture" src="http://127.0.0.1:8000/media/images/{{ data.model.image_path }}"/>
+        <div> Название: {{ data.model.name }}</div>
         <div>Описание: {{ data.model.description }}</div>
-        <img src="http://127.0.0.1:8000/media/images/{{ data.model.image_path }}"/>
+    </div>
+    <a class = "tick" href="../../../">Назад</a>
+
 
 {% endblock %}
