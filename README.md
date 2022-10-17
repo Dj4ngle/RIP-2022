@@ -7,7 +7,10 @@
 
 * [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab1/printing)
 
-
 ### 2. "Лабораторная работа №2"
 
 * [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab2/printing)
+
+### 3. "Лабораторная работа №3"
+
+* [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab3/restapi)
