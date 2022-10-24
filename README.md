@@ -13,4 +13,4 @@
 
 ### 3. "Лабораторная работа №3"
 
-* [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab3/restapi)
+* [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab3v2/restapi)
