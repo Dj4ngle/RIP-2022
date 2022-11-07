@@ -14,3 +14,7 @@
 ### 3. "Лабораторная работа №3"
 
 * [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab3v2/restapi)
+
+### 4. "Лабораторная работа №4"
+
+* [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab4/untitled)
