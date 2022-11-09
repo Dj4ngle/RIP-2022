@@ -5,6 +5,7 @@ import ShowCommands from "./pages/ShowCommands";
 import Start from "./pages/Start";
 import React from "react";
 import GetAllModels from "./pages/GetAllModels";
+import './App.css'
 
 
 function App() {

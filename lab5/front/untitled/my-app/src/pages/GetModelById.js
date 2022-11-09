@@ -25,9 +25,10 @@ function GetModelById() {
             <a href = {'/models/getall'}>Модели/</a>
             <a href = {`/models/getbyid/${modelId}`}>Модель {modelId}</a>
             <h1>Модель:</h1>
+            <img className="fit-picture" src ={`${ models.image_path }`}/>
             <div>Название: {models.name}</div>
             <div>Описание: {models.description}</div>
-            <div>Цена: {models.price}</div>
+            <div>Цена: {models.price} ₽</div>
         </div>
     );
 }
