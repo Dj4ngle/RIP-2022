@@ -1,11 +1,7 @@
-import React, { useContext } from "react";
 import {Link} from "react-router-dom";
-import { ModelsContext } from "../contexts/models";
 import {GetModels} from "../contexts/models/provider";
 
 function GetAllModels(){
-
-    const [users, dispatch] = useContext(ModelsContext);
 
     return (
         <div>
