@@ -45,6 +45,7 @@ function GetModelById() {
             })
     }, [])
 
+    if (state.models.detail == "Not found.") { dispatch({type: 'FETCH_ERROR'}) }
 
     return (
         <div>
@@ -53,14 +54,16 @@ function GetModelById() {
             <a href = {'/models/getall'}>Модели/</a>
             <a href = {`/models/getbyid/${modelId}`}>Модель {modelId}</a>
             <h1>Модель:</h1>
-            {state.loading ? 'Loading' :
+
+            {state.loading ? 'Loading' : null}
+            {state.error ? state.error :
                 <ul>
-                <img className="fit-picture" src ={`${ state.models.image_path }`}/>
-                <div>Название: {state.models.name}</div>
-                <div>Описание: {state.models.description}</div>
-                <div>Цена: {state.models.price} ₽</div>
+                    <img className="fit-picture" src ={`${ state.models.image_path }`}/>
+                    <div>Название: {state.models.name}</div>
+                    <div>Описание: {state.models.description}</div>
+                    <div>Цена: {state.models.price} ₽</div>
                 </ul>}
-            {state.error ? state.error : null}
+
         </div>
     );
 }

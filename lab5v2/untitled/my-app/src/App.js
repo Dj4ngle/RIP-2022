@@ -6,8 +6,7 @@ import Start from "./pages/Start";
 import React from "react";
 import GetAllModels from "./pages/GetAllModels";
 import './App.css'
-import { ModelsProvider } from "./contexts/models/index1";
-import { UsersProvider } from "./contexts/models";
+import { ModelsProvider } from "./contexts/models";
 
 function App() {
 
@@ -24,9 +23,9 @@ function App() {
                     <ShowCommands></ShowCommands>
                 </Route>
                 <Route path="/models/getall">
-                    <UsersProvider>
+                    <ModelsProvider>
                         <GetAllModels />
-                    </UsersProvider>
+                    </ModelsProvider>
                 </Route>
                 <Route path="/models/getbyid/:id">
                     <GetModelById></GetModelById>

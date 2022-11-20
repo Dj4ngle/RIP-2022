@@ -1,15 +1,15 @@
 import { useEffect, useReducer } from "react";
 
-import { UsersContext } from "./context";
+import { ModelsContext } from "./context";
 import {reducer, initialState} from "./reducer"
 
-export const UsersProvider = ({ children }) => {
+export const ModelsProvider = ({ children }) => {
   const [users, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <UsersContext.Provider value={[users, dispatch]}>
+    <ModelsContext.Provider value={[users, dispatch]}>
       {children}
-    </UsersContext.Provider>
+    </ModelsContext.Provider>
   );
 };
 
