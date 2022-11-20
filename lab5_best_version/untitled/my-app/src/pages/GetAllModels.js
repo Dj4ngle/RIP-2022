@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
+import { ModelsContext} from "../contexts/models";
 import {Link} from "react-router-dom";
-import { UsersContext } from "../contexts/models";
-import {GetModels} from "../contexts/models/provider";
+
 
 function GetAllModels(){
 
-    const [users, dispatch] = useContext(UsersContext);
+    const models = useContext(ModelsContext);
 
     return (
         <div>
@@ -13,7 +13,7 @@ function GetAllModels(){
             <a href={'/commands'}>Список команд/</a>
             <a href = {'/models/getall'}>Модели/</a>
             <ul>
-                {GetModels().map(model =>
+                {models.map(model =>
                     <li key = {model.id}>
                         <Link to={`/models/getbyid/${model.id}`}>{model.name}</Link>
                     </li>)}

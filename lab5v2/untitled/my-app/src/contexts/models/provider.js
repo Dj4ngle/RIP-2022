@@ -1,23 +1,28 @@
-import { useState, useEffect } from "react";
+import { useEffect, useReducer } from "react";
 
-import { ModelsContext } from "./context";
+import { UsersContext } from "./context";
+import {reducer, initialState} from "./reducer"
 
-
-export const ModelsProvider = ({ children }) => {
-  const [users, setUsers] = useState([]);
-
-
-  useEffect(() => {
-        fetch('http://127.0.0.1:8000/models/')
-            .then(response => response.json())
-
-            .then(data => {
-              setUsers(data);
-            })
-      }, [])
-
+export const UsersProvider = ({ children }) => {
+  const [users, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <ModelsContext.Provider value={users}>{children}</ModelsContext.Provider>
+    <UsersContext.Provider value={[users, dispatch]}>
+      {children}
+    </UsersContext.Provider>
   );
 };
+
+
+export function GetModels() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/models/')
+        .then(response => response.json())
+        .then(data => {
+          dispatch({type: 'GET_DATA', payload: data});
+        })
+  }, [])
+  return state.models
+}
