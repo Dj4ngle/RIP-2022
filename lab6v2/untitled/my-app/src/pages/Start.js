@@ -1,17 +1,30 @@
-import React, {useContext} from 'react'
-import {ThemeContext} from "../contexts/models/context";
+import React from 'react'
+import "../static/Start.css"
 
 function Start(){
-    const [theme, setTheme] = useContext(ThemeContext);
+
+    const autorise = () =>{
+        if (localStorage.getItem('theme') == 'light'){
+            localStorage.setItem('theme' , 'dark')
+            window.location.reload();
+        }else{
+            localStorage.setItem('theme' , 'light')
+            window.location.reload();
+        }
+        console.log(localStorage.getItem('theme'))
+    }
+
 
     return(
         <div>
             <a href = {`/models/cart/`}>Корзина</a>
-            <br/>
+            <br />
             <a>Начальная страница</a>
-            <button onClick={setTheme('dark')} style={{ background: theme.background, color: theme.foreground }}>
-                I am styled by theme context!
-            </button>
+            <br />
+            <input id="buy_button" className="buy_button" type="submit" value="Авторизация" onClick={autorise}/>
+            <div className={`blocker ${localStorage.getItem('theme')}`}>
+                <p className={`app ${localStorage.getItem('theme')}`}>Добро пожаловать, ♂мастер♂!!!</p>
+            </div>
         </div>
     )
 }

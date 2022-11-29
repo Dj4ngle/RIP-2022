@@ -2,26 +2,24 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import GetModelById from "./pages/GetModelById";
 import NotFound from "./pages/NotFound";
 import GetInfo from "./pages/Info";
-import React, {useState} from "react";
+import React from "react";
 import { ModelsProvider } from "./contexts/models";
 import Navbar from "./pages/Navbar";
 import './static/index.css';
 import CartPage from "./pages/CartPage";
 import Start from "./pages/Start";
 import SearchPage from "./pages/SearchPage";
-import {ThemeContext} from "./contexts/models/context";
 
 function App() {
-    const [theme, setTheme] = useState('light')
     return (
         <div>
             <BrowserRouter basename="/" >
-                <Navbar />
+                    <Navbar />
                 <Switch>
                     <Route exact path="/">
-                        <ThemeContext.Provider value={{theme, setTheme}}>
+
                             <Start />
-                        </ThemeContext.Provider>
+
                     </Route>
                     <Route path="/models/getall">
                         <ModelsProvider>

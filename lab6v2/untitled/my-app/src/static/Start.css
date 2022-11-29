@@ -1,0 +1,16 @@
+.app.dark {
+    visibility: hidden;
+}
+
+.buy_button.dark{
+    visibility: hidden;
+}
+
+.blocker.light{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: center;
+    font-family:  Impact;
+    font-size: 100px;
+}

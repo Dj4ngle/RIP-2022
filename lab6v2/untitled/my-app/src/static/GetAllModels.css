@@ -35,3 +35,7 @@
     overflow: hidden;
     position: relative;
 }
+
+.buy_button.dark{
+    visibility: hidden;
+}

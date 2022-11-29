@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from 'react';
+import React from 'react';
 import {useParams} from "react-router-dom";
 import '../static/GetAllModels.css';
 import {GetModel} from "../contexts/models/provider";
@@ -39,7 +39,7 @@ function GetModelById() {
                 <div>Название: {models.name}</div>
                 <div>Описание: {models.description}</div>
                 <div>Цена: {models.price} ₽</div>
-                <input id="buy_button" className="buy_button" type="submit" value="В корзину" onClick={()=>{buy(1, 1, modelId)}}/>
+                <input id="buy_button" className={`buy_button ${localStorage.getItem('theme')}`} type="submit" value="В корзину" onClick={()=>{buy(1, 1, modelId)}}/>
             </ul>
 
         </div>
