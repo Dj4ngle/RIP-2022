@@ -25,4 +25,4 @@
 
 ### 6. "Лабораторная работа №6"
 
-* [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab6v2d)
+* [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab6v2)
