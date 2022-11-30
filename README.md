@@ -22,3 +22,7 @@
 ### 5. "Лабораторная работа №5"
 
 * [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab5v2/untitled)
+
+### 6. "Лабораторная работа №6"
+
+* [Код](https://github.com/junglekiller4/RIP-2022/tree/main/lab6v2d)
