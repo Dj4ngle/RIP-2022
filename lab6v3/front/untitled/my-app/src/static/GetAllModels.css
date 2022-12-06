@@ -1,0 +1,50 @@
+.fit-picture{
+    width: 50vh;
+}
+
+.manga_row{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding:20px 20% ;
+}
+.manga_block{
+    display: inline-block;
+    text-align: center;
+    height: 360px;
+    position:relative;
+}
+
+.manga_block2{
+    display: block;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    position:relative;
+}
+
+.manga_image{
+    left: 50%;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 300px;
+}
+.manga_link{
+    display:block;
+    position: absolute;
+    width: 100%;
+    text-decoration-line: none;
+}
+.image_wrapper{
+    width: 300px;
+    height: 300px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.buy_button.dark{
+    visibility: hidden;
+}
