@@ -1,0 +1,73 @@
+ body{
+  background-image: linear-gradient(to bottom, #aea4e3, #d3ffe8);
+  height: 100%;
+  margin: 0;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.mars{
+  left:0;
+  right:0;
+  bottom:0;
+  position:absolute;
+  height: 27vmin;
+  background: url('https://assets.codepen.io/1538474/mars.svg') no-repeat bottom center;
+  background-size: cover;
+}
+
+.logo-404{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 16vmin;
+  width: 30vmin;
+}
+
+.meteor{
+  position: absolute;
+  right: 2vmin;
+  top: 16vmin;
+}
+
+.title{
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: 5vmin;
+  margin-top: 31vmin;
+}
+
+.subtitle{
+  color: white;
+  font-weight: 400;
+  text-align: center;
+  font-size: 3.5vmin;
+  margin-top: -1vmin;
+  margin-bottom: 9vmin;
+}
+
+.btn-back{
+  border: 1px solid white;
+  color: white;
+  height: 5vmin;
+  padding: 12px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.astronaut{
+  position: absolute;
+  top: 18vmin;
+  left: 10vmin;
+  height: 30vmin;
+  animation: floating 3s infinite ease-in-out;
+}
+
+.spaceship{
+  position: absolute;
+  bottom: 15vmin;
+  right: 24vmin;
+}
