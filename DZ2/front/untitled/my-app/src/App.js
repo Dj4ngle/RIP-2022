@@ -18,51 +18,58 @@ import PurchasePage from "./pages/PurchasePage";
 
 function App() {
     return (
-        <div>
-            <BrowserRouter basename="/" >
+        <BrowserRouter basename="/" >
+            <Route>
+                <Route exact path="/">
                     <Navbar />
-                <Route>
-                    <Route exact path="/">
-                            <Start />
-                    </Route>
+                    <Start />
+                </Route>
                     <Route path="/models/getall">
                         <ModelsProvider>
+                            <Navbar />
                             <SearchPage/>
                         </ModelsProvider>
                     </Route>
                     <Route path="/models/getbyid/:id">
                         <ModelsProvider>
+                            <Navbar />
                             <GetModelById />
                         </ModelsProvider>
                     </Route>
                     <Route path="/models/cart">
+                        <Navbar />
                         <CartPage />
                     </Route>
                     <Route path="/models/purchases">
+                        <Navbar />
                         <PurchasesPage />
                     </Route>
                     <Route path="/models/purchase/:id">
+                        <Navbar />
                         <PurchasePage />
                     </Route>
                     <Route path="/models/managers/">
+                        <Navbar />
                         <MainPage />
                     </Route>
                     <Route path="/models/manager/:id">
+                        <Navbar />
                         <SinglePage />
                     </Route>
                     <Route path="/info">
+                        <Navbar />
                         <GetInfo />
                     </Route>
                     <Route path="/registration">
+                        <Navbar />
                         <RegistrationPage />
                     </Route>
                     <Route path="/login">
+                        <Navbar />
                         <LoginPage />
                     </Route>
-
-                </Route>
-            </BrowserRouter>
-        </div>
+            </Route>
+        </BrowserRouter>
     );
 }
 

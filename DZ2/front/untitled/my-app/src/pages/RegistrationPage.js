@@ -27,7 +27,7 @@ function RegistrationPage() {
             })
             .catch(function (reason) {
                 console.log(reason)
-                history.push('/login')
+                history.push('/registration')
             })
     }
 

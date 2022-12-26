@@ -15,55 +15,23 @@ function GetModelById() {
     const buy=(quantity, id_user, id_model)=> {
         const ob = {
             quantity: quantity,
-            id_user: id_user,
-            id_model: id_model,
             colour: colour,
-            size: size
+            size: size,
+            id_model: id_model
         }
         console.log(ob)
-        fetch("http://127.0.0.1:8000/cart/",{
+        fetch('/api/cart/add/',{
             method: "post",
-            headers: {
-                "Authorization": `Token ${sessionStorage.getItem('token')}`,
-                "Content-Type": "application/json"
-            },
-            withCredentials: true,
             body: JSON.stringify(ob)
         })
             .then(res => res.json())
             .then(res => {
                 console.log(res);
             })
-    }
-
-    const get_user=()=> {
-        console.log()
-        fetch(`http://127.0.0.1:8000/rest-auth/user/`, {
-            headers: {
-                "Authorization": `Token ${sessionStorage.getItem('token')}`,
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.pk)
-                setUser(data);
+            .catch(function (reason) {
+                console.log(reason)
             })
     }
-
-    const [user, setUser] = useState(
-        {
-            "pk": 1,
-            "username": "",
-            "email": "",
-            "first_name": "",
-            "last_name": ""
-        }
-    )
-
-    useEffect( () => {
-        get_user()
-    }, [])
-
 
     return (
         <div>
@@ -101,7 +69,7 @@ function GetModelById() {
                                 value={size}
                                 className="input-block33"
                             />
-                            <input id="buy_button" type="submit" value="В корзину" onClick={()=>{buy(count, user.pk, modelId)}}/>
+                            <input id="buy_button" type="submit" value="В корзину" onClick={()=>{buy(count, localStorage.getItem('user_id'), modelId)}}/>
                         </div>
                         :
                         <div></div>

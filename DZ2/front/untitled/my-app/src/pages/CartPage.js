@@ -7,27 +7,18 @@ function Cart(){
 
     const models = GetModels()
     const cart = GetCart(localStorage.getItem('user_id'))
-    console.log(cart)
     const buy=()=> {
         let order;
         const se = {
-            id_user: localStorage.getItem('user_id'),
             status: 1,
+            comment: ""
         }
-        fetch("http://127.0.0.1:8000/sells/", {
+        fetch('/api/sell/add/', {
             method: "post",
-            headers: {
-                "Authorization": `Token ${sessionStorage.getItem('token')}`,
-                "Content-Type": "application/json"
-            },
-            withCredentials: true,
             body: JSON.stringify(se)
         })
-            .then(res => res.json())
             .then(res => {
-                console.log(res)
-                order =res.id
-                console.log(order)
+                order = res
             })
 
         setTimeout(() => {
@@ -39,37 +30,29 @@ function Cart(){
                     colour: cart.colour,
                     size: cart.size
                 }
-                console.log(ob)
-                fetch("http://127.0.0.1:8000/purchase/", {
+                fetch('/api/purchase/add/', {
                     method: "post",
-                    headers: {
-                        "Authorization": `Token ${sessionStorage.getItem('token')}`,
-                        "Content-Type": "application/json"
-                    },
-                    withCredentials: true,
                     body: JSON.stringify(ob)
                 })
                     .then(res => res.json())
                     .then(res => {
                         console.log(res);
                     })
-                //del(cart.id)
+                del(cart.id)
             })
         }, 500);
     }
 
     const del=(cart_id)=> {
-        fetch(`http://127.0.0.1:8000/cart/${cart_id}`, {
-            method: "DELETE",
-            headers: {
-                "Authorization": `Token ${sessionStorage.getItem('token')}`,
-                "Content-Type": "application/json"
-            },
-        })
+        fetch('/api/cart/delete/', {method : "DELETE", body: JSON.stringify(
+            {
+                "id_cart": cart_id,
+            }
+            )})
             .then(res => {
                 if (res.ok) {
                     console.log("HTTP request successful");
-                    //window.location.reload();
+                    window.location.reload();
                 } else {
                     console.log("HTTP request unsuccessful");
                 }
@@ -98,7 +81,7 @@ function Cart(){
                     <input id="buy_button" type="submit" value="Удалить" onClick={()=>{del(cart.id)}}/>
                     </div>
                 </div>)}
-            <button className="buy_button" onClick={()=>{buy()}}>Купить</button>
+            <button className="buy_button35" onClick={()=>{buy()}}>Купить</button>
         </div>
     );
 }
