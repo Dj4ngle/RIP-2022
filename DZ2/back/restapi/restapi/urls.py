@@ -22,9 +22,12 @@ urlpatterns = [
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/', admin.site.urls),
 
-    path('api/cart/add', models_views.add_to_cart, name='add_to_cart'),
+    path('api/cart/add/', models_views.add_to_cart, name='add_to_cart'),
+    path('api/cart/delete/', models_views.delete_in_cart, name='delete_in_cart'),
+    path('api/sell/add/', models_views.create_sell, name='create_sell'),
+    path('api/purchase/add/', models_views.create_purchase, name='create_purchase'),
     path('api/authorize/', models_views.AuthView.as_view(), name="auth"),
-    path('api/user/create', models_views.create_user, name="create-user"),
+    path('api/user/create/', models_views.create_user, name="create-user"),
     path('api/logout/', models_views.logout, name="logout"),
 
 ]

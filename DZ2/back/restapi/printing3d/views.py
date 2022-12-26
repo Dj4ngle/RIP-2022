@@ -75,6 +75,7 @@ def create_user(request):
 def add_to_cart(request):
     data = json.loads(request.body)
     ssid = request.COOKIES.get("session_cookie")
+    print(ssid)
     quantity = data["quantity"]
     id_model = data["id_model"]
     colour = data["colour"]
@@ -87,10 +88,56 @@ def add_to_cart(request):
     else:
         return HttpResponse("{\"status\": \"error\", \"error\": \"haven't been added to cart\"}")
 
+@api_view(["POST"])
+def create_sell(request):
+    data = json.loads(request.body)
+    status = data['status']
+    comment = data['comment']
+    ssid = request.COOKIES.get("session_cookie")
+    user = User.objects.get(username=session_storage.get(ssid).decode())
+    if user is not None:
+        if user.is_staff:
+            u = Sell3d.objects.creat(status=status, comment=comment, id_user=user.id)
+            response = Response(data=u.id, content_type='json')
+        else:
+            u = Sell3d.objects.create(status=status, id_user=user.id)
+            response = Response(data=u.id, content_type='json')
+        return response
+    else:
+        return HttpResponse("{\"status\": \"error\", \"error\": \"user creation failed\"}", content_type='json')
+
+@api_view(["POST"])
+def create_purchase(request):
+    data = json.loads(request.body)
+    id_purchase: data['id_purchase']
+    id_model: data['id_model']
+    quantity: data['quantity']
+    colour: data['colour']
+    size: data['size']
+    ssid = request.COOKIES.get("session_cookie")
+    user = User.objects.get(username=session_storage.get(ssid).decode())
+    if user is not None:
+        Purchase.objects.creat(id_purchase=id_purchase, id_model=id_model,
+                               quantity=quantity, colour=colour, size=size)
+        return HttpResponse("{\"status\": \"ok\"}", content_type='json')
+    else:
+        return HttpResponse("{\"status\": \"error\", \"error\": \"user creation failed\"}", content_type='json')
+
+@api_view(["DELETE"])
+def delete_in_cart(request):
+    data = json.loads(request.body)
+    cart_id = data['id_cart']
+    ssid = request.COOKIES.get("session_cookie")
+    if ssid is not None:
+        Cart.objects.filter(id=cart_id).delete()
+        response = Response("{\"status\": \"ok\"}", content_type="json")
+    else:
+        response = Response("{\"status\": \"You have to logIn\"}", content_type="json")
+    return response
+
 @api_view(["GET"])
 def logout(request):
     ssid = request.COOKIES.get("session_cookie")
-    print(request.COOKIES.get("session_cookie"))
     if ssid is not None:
         session_storage.delete(ssid)
         response = Response(status=status.HTTP_200_OK, data="{\"status\": \"successfully logged out\"}")
