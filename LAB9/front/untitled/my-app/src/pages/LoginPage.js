@@ -20,16 +20,21 @@ export function LoginPage() {
             .then(res => res.json())
             .then(res => {
                 console.log(res)
-                localStorage.setItem('user_id', res[1])
-                localStorage.setItem('user_login', log)
-                localStorage.setItem('user_status', res[0])
-                if (res[0]) {
-                    //window.location.replace("/models/managers")
-                    history.push('/models/managers')
+                if (res.status === "error"){
+                    console.log(res)
+                    history.push('/login')
                 }
-                else{
-                    //window.location.replace("/")
-                    history.push('/')
+                else {
+                    localStorage.setItem('user_id', res.user_id)
+                    localStorage.setItem('user_login', log)
+                    localStorage.setItem('user_status', res.user_status)
+                    if (res.user_status) {
+                        //window.location.replace("/models/managers")
+                        history.push('/models/managers')
+                    } else {
+                        //window.location.replace("/")
+                        history.push('/')
+                    }
                 }
             })
             .catch(function (reason) {

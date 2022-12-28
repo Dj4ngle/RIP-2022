@@ -43,7 +43,10 @@ function Navbar() {
                                 localStorage.getItem('user_status') == "false"  ?
                                     <Link className="nav-link" to={'/models/sent'}>Заказы</Link>
                                 :
-                                <Link className="nav-link" to={'/models/managers'}>Заказы</Link>
+                                    localStorage.getItem('user_status') == "true"  ?
+                                    <Link className="nav-link" to={'/models/managers'}>Заказы</Link>
+                                        :
+                                        <div></div>
                             }
                         </li>
                         <li className="nav-item">

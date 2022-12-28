@@ -20,10 +20,10 @@ function SinglePage(){
     function accept_order() {
             const ob = {
                 id: buyId,
-                status: 4,
+                status: 3,
                 comment: comment
             }
-        fetch(`/api/sell/update/comment/`, {
+        fetch(`/api/sell/update/comment`, {
             method: "put",
             body: JSON.stringify(ob),
         })
@@ -43,7 +43,7 @@ function SinglePage(){
             status: 2,
             comment: comment
         }
-        fetch(`/api/sell/update/comment/`, {
+        fetch(`/api/sell/update/comment`, {
             method: "put",
             body: JSON.stringify(ob),
         })

@@ -23,7 +23,8 @@ function RegistrationPage() {
             .then(res => res.json())
             .then(res => {
                 console.log(res);
-                history.push("/login")
+                if (res.status === "ok") history.push("/login")
+                else history.push('/registration')
             })
             .catch(function (reason) {
                 console.log(reason)

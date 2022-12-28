@@ -239,8 +239,8 @@ class AuthView(APIView):
             u = User.objects.get(username=username)
             u.last_login = timezone.now()
             u.save()
-            response = Response(content_type='json', data={u.id, u.is_staff})
+            response = Response(content_type='json', data={"user_id": u.id, "user_status": u.is_staff})
             response.set_cookie("session_cookie", key)
             return response
         else:
-            return Response("{\"status\": \"error\", \"error\": \"login failed\"}")
+            return Response(content_type='json', data={"status": "error", "error": "login failed"})
